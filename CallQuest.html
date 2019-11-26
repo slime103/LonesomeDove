@@ -15,8 +15,10 @@
 {
   font-family: courier12, courier;
   font-size: 24px;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Fade In." tags="" position="409,175" size="100,100">EXT. CALL&#39;S RANCH - DAY
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Fade In." tags="" position="409,175" size="100,100">Fade In.
 
+EXT. CALL&#39;S RANCH - DAY (set: $xavier to false)
+(set: $grain to false)+(set: $soap to false)+(set: $pie to false)+(set: $corn to false)+(set: $penuts to false)
 CALL, 50s, short white beard, clean white shirt, brown pants, sits on the porch sipping peach tea. JAKE SPOON (YOU), 30s, fancy green shirt, jumps off his horse and approaches Call. Jake takes off his hat.
 
 (align: &quot;=&gt;&lt;=&quot;)[JAKE
@@ -52,16 +54,16 @@ Take this then.]
 
 Call reaches into his pocket and hands Jake (colour: orange)[$20].(set: $money to 20)
 
-(display: &quot;continueCall2&quot;)</tw-passagedata><tw-passagedata pid="5" name="continueCall" tags="" position="410.5,447" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[CALL
+(display: &quot;continueCall2&quot;)</tw-passagedata><tw-passagedata pid="5" name="continueCall" tags="" position="410,447" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[CALL
 As I was sayin’ before, go on into town and see if you can scrounge us up some extra supplies we can use for the trip, be nice to have some extra bullets, more feed for the horses just in case, and a little bit o’ whisky just for the men.
 
 JAKE
-Alright, alright I’ll do the damn thing, just gimme the damn cash for it.]</tw-passagedata><tw-passagedata pid="6" name="continueCall2" tags="" position="322.5,561" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[CALL
+Alright, alright I’ll do the damn thing, just gimme the damn cash for it.]</tw-passagedata><tw-passagedata pid="6" name="continueCall2" tags="" position="322,561" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[CALL
 Hurry on back here,  sooner we get those, sooner we’ll be ready to hit the trail.]
 
 EXT. LONESOME DOVE - DAY
 
-Jake’s horse trots by a wooden SIGN that reads ‘Lonesome Dove.’ Small wooden buildings line a dirt road each with their own bright and unique signage. There’s a [[general store]], a gun shop, a [[saloon]], a diner, and a [[sheriff’s office]].</tw-passagedata><tw-passagedata pid="7" name="general store" tags="" position="257.5,844" size="100,100">INT. LONESOME DOVE GENERAL STORE - DAY
+Jake’s horse trots by a wooden SIGN that reads ‘Lonesome Dove.’ Small wooden buildings line a dirt road each with their own bright and unique signage. There’s a [[general store]], a gun shop, a [[saloon]], a diner, and a [[sheriff’s office]].</tw-passagedata><tw-passagedata pid="7" name="general store" tags="" position="257,844" size="100,100">INT. LONESOME DOVE GENERAL STORE - DAY
 
 Lonesome Dove General is small but it’s light blue walls and cozy sunlit atmosphere make it seem roomy and inviting. JIM, 40s, tall, unshaven, shaggy brown shirt and apron stands behind a tall counter with his double shotgun leaning up against the wall to his side. Large shelves are filled with various items ranging in color, size and price tag.
 
@@ -77,19 +79,59 @@ Depends what you need.
 JAKE
 [[I’ll take a…]]
 [[Just here to grab a few things, nothin’ else.]]
-[[You know what I’m actually all set.]]]</tw-passagedata><tw-passagedata pid="8" name="saloon" tags="" position="407.5,844" size="100,100">INT. SALOON - DAY
+[[You know what I’m actually all set.]]]</tw-passagedata><tw-passagedata pid="8" name="saloon" tags="" position="407,844" size="100,100">INT. SALOON - DAY
 
 Jake enters the saloon. The doors flap behind him. A few customers are sitting inside drinking and playing cards. Jake scans the bar and spots Xavier wiping down a table. He walks up to greet him.
 
 (align: &quot;=&gt;&lt;=&quot;)[JAKE
 [[Howdy there Davie.]]
-[[Good afternoon, Davie.]]]</tw-passagedata><tw-passagedata pid="9" name="sheriff’s office" tags="" position="557.5,844" size="100,100">INT. SHERIFF’S OFFICE - DAY
+[[Good afternoon, Davie.]]]</tw-passagedata><tw-passagedata pid="9" name="sheriff’s office" tags="" position="557,844" size="100,100">INT. SHERIFF’S OFFICE - DAY
 
 JAKE walks into the Sheriff&#39;s Office, sitting at a desk is one CHUCK ROGERS, who is reading the local newspaper. ROGERS is an older man, already balding, who has to squint very hard in order to read the paper. He looks exhausted when JAKE enters
 
 (align: &quot;=&gt;&lt;=&quot;)[JAKE
 [[You ok there, Sheriff?-&gt;sheriffResponse]]
-[[What’chu readin’ there, Rogers?-&gt;sheriffResponse]]]</tw-passagedata><tw-passagedata pid="10" name="I’ll take a…" tags="" position="43.5,902" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="11" name="Just here to grab a few things, nothin’ else." tags="" position="112.5,1023" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JIM
+[[What’chu readin’ there, Rogers?-&gt;sheriffResponse]]]</tw-passagedata><tw-passagedata pid="10" name="I’ll take a…" tags="" position="27,893" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JIM
+Just let me know when your all set.]
+
+Funds: $money.
+
+[ [Grain], [Jerky], [Apple Pie], [Corn], [Penuts], [Oil], [Soap], [Jam], [Gin] ]
+
+(if: $money &gt; 3)[(click: &quot;Grain&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Grain Acquired**](set: $money to ($money - 3))
+Wallet: $money(set: $grain to true)]]
+
+(if: $money &gt; 2)[(click: &quot;Jerky&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Jerky Acquired**](set: $money to ($money - 2))
+Wallet: $money(set: $jerky to true)]]
+
+(if: $money &gt; 3)[(click: &quot;Apple Pie&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Apple Pie Acquired**](set: $money to ($money - 3))
+Wallet: $money(set: $pie to true)]]
+
+(if: $money &gt; 2)[(click: &quot;Corn&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Corn Acquired**](set: $money to ($money - 3))
+Wallet: $money(set: $corn to true)]]
+
+(if: $money &gt; 1)[(click: &quot;Penuts&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Penuts Acquired**](set: $money to ($money - 1))
+Wallet: $money(set: $penuts to true)]]
+
+(if: $money &gt; 4)[(click: &quot;Oil&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Oil Acquired**](set: $money to ($money - 4))
+Wallet: $money(set: $oil to true)]]
+
+(if: $money &gt; 2)[(click: &quot;Soap&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Soap Acquired**](set: $money to ($money - 2))
+Wallet: $money(set: $soap to true)]]
+
+(if: $money &gt; 5)[(click: &quot;Jam&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Jam Acquired**](set: $money to ($money - 5))
+Wallet: $money(set: $jam to true)]]
+
+(if: $money &gt; 1)[(click: &quot;Gin&quot;)+(align: &quot;=&gt;&lt;=&quot;)[(colour: green)[**Gin Acquired**](set: $money to ($money - 1))
+Wallet: $money(set: $gin to true)]]
+
+(align: &quot;=&gt;&lt;=&quot;)[JAKE
+[That should do it.]&lt;allset|
+
+(click: ?allset)[ [JIM
+Thank you for your business, Spoon. I&#39;m sure Call will enjoy $pie[freshly baked apple pie! My wife made it last night.](else: )[everything you got him.]]
+
+[[Jake tips his hat and steps outside.-&gt;lonesomeDove]]]]</tw-passagedata><tw-passagedata pid="11" name="Just here to grab a few things, nothin’ else." tags="" position="133,1035" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JIM
 The ol’ Rangers back together eh? ‘Bout time someone got Call out of this town again. You can’t keep a dog chained up forever. Now did I hear that right, Montana?
 
 JAKE
@@ -100,24 +142,34 @@ Darn tootin, ya’ll gon need quite the stash for a trip like that. Call has alw
 
 Jim walks into the back then returns with a sack of grain, a sack of corn, and a bottle of whisky. 
 
+(align: &quot;=&gt;&lt;=&quot;)[JIM
+That should be enough to last y’all quite the while.
+
+(colour: green)[**Grain Acquired
+
+Corn Acquired
+
+Whisky Acquired**]
+
 JIM
-That should be enough to last y’all quite the while. Farewell.
+Anything else I can do for ye?
 
 JAKE
-[Much obliged.]&lt;obliged|]
+[[That&#39;l be all Jim, much obliged.]]
+[[Thank you Jim and one last thing. -&gt;I’ll take a…]]]]</tw-passagedata><tw-passagedata pid="12" name="lonesomeDove" tags="" position="483,562" size="100,100">EXT. LONESOME DOVE - DAY
 
-(click: ?obliged)[[[Jake kindly accepts the goods and leaves.-&gt;lonesomeDove]]]</tw-passagedata><tw-passagedata pid="12" name="lonesomeDove" tags="" position="483.5,562.3333435058594" size="100,100">EXT. LONESOME DOVE - DAY
+Jake (either: &quot;exits&quot;, &quot;steps outside&quot;) onto the dirt road at the center of the town. Small wooden buildings line a dirt road each with their own bright and unique signage. There’s a [[general store]], a gun shop, a [[saloon]], a diner, and a [[sheriff’s office]].
 
-Jake (either: &quot;exits&quot;, &quot;steps outside&quot;) onto the dirt road at the center of the town. Small wooden buildings line a dirt road each with their own bright and unique signage. There’s a [[general store]], a gun shop, a [[saloon]], a diner, and a [[sheriff’s office]].</tw-passagedata><tw-passagedata pid="13" name="You know what I’m actually all set." tags="" position="249.5,1031.3333129882812" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JIM
+$xavier[ [[Head back to the Ranch.]] ]</tw-passagedata><tw-passagedata pid="13" name="You know what I’m actually all set." tags="" position="249,1031" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JIM
 Well, you know where to find me when you change your mind.]
 
-[[Jake tips his hat and exits.-&gt;lonesomeDove]]</tw-passagedata><tw-passagedata pid="14" name="sheriffResponse" tags="" position="703.5,853" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[ROGERS
+[[Jake tips his hat and exits.-&gt;lonesomeDove]]</tw-passagedata><tw-passagedata pid="14" name="sheriffResponse" tags="" position="703,853" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[ROGERS
 (startled)
 Jake! You damn near scared me to death! What’re you doin’ here this late in the day?
 
 JAKE
 [[As a matter o’ fact, I was curious if there’s been any news outta Arkansas.-&gt;sheriffResponse2]]
-[[Nothin’ really, old Call’s got me out here lookin’ for some extra supplies before we set out.-&gt;sheriffResponse2]]]</tw-passagedata><tw-passagedata pid="15" name="sheriffResponse2" tags="" position="707.5,1001" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[ROGERS
+[[Nothin’ really, old Call’s got me out here lookin’ for some extra supplies before we set out.-&gt;sheriffResponse2]]]</tw-passagedata><tw-passagedata pid="15" name="sheriffResponse2" tags="" position="707,1001" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[ROGERS
 Actually, I got some news for you.]
 
 Jake looks a bit anxious, he starts looking around, weary as sweat begins to form on his brow
@@ -130,17 +182,17 @@ Jake lets out a sigh of relief
 (align: &quot;=&gt;&lt;=&quot;)[ROGERS
 Ain’t really got much for ya ‘sides that. Now if you’ll excuse me, I’ve got some important matters to attend to.]
 
-[[Rogers gets up and heads for the outhouse-&gt;lonesomeDove]]</tw-passagedata><tw-passagedata pid="16" name="Howdy there Davie." tags="" position="403.5,1017" size="100,100">Xavier gives a stiff nod
+[[Rogers gets up and heads for the outhouse-&gt;lonesomeDove]]</tw-passagedata><tw-passagedata pid="16" name="Howdy there Davie." tags="" position="403,1017" size="100,100">Xavier gives a stiff nod
 
 (align: &quot;=&gt;&lt;=&quot;)[XAVIER
 Good afternoon, Jake. What do you want?]
 
-(display: &quot;callSentMe&quot;)</tw-passagedata><tw-passagedata pid="17" name="Good afternoon, Davie." tags="" position="550.5,1006" size="100,100">Xavier gives a soft nod
+(display: &quot;callSentMe&quot;)</tw-passagedata><tw-passagedata pid="17" name="Good afternoon, Davie." tags="" position="550,1006" size="100,100">Xavier gives a soft nod
 
 (align: &quot;=&gt;&lt;=&quot;)[XAVIER
 Afternoon, Jake. You are surprisingly polite today. What brings you in?]
 
-(display: &quot;callSentMe&quot;)</tw-passagedata><tw-passagedata pid="18" name="callSentMe" tags="" position="483.5,1136" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JAKE
+(display: &quot;callSentMe&quot;)</tw-passagedata><tw-passagedata pid="18" name="callSentMe" tags="" position="483,1136" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JAKE
 Call sent me to get some extra supplies for our trip to Montany. You wouldn’t happen to have any liquor to spare would’ya?
 
 XAVIER
@@ -148,34 +200,38 @@ Of course, how much are you buying?
 
 JAKE
 [[Well, I was hopin you could be a pal and give us a few bottles for free.]]
-(if: $money &gt; 0)[[How much’ll (print: $money) dollars get me? -&gt;How much’ll]]]</tw-passagedata><tw-passagedata pid="19" name="Well, I was hopin you could be a pal and give us a few bottles for free." tags="" position="408.5,1286" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
+(if: $money &gt; 0)[[How much’ll (print: $money) dollars get me? -&gt;How much’ll]]]</tw-passagedata><tw-passagedata pid="19" name="Well, I was hopin you could be a pal and give us a few bottles for free." tags="" position="408,1286" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
 I can’t do that Jake.
 
 JAKE(set: $gift to true)(set: $fortune to true)
 [[Come now give me something here, at least as a farewell gift.]]
 [[This ain’t just for me, it’s for Call and Gus too. I’m sure they’d appreciate your kindness.]]
-[[We’ll be making a fortune in Montany. I’god, you give us this liquor for free, we’ll be sure to bring you back a dozen times what that cost.]]</tw-passagedata><tw-passagedata pid="20" name="complete" tags="" position="583.5,1424.6666870117188" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JAKE
+[[We’ll be making a fortune in Montany. I’god, you give us this liquor for free, we’ll be sure to bring you back a dozen times what that cost.]]</tw-passagedata><tw-passagedata pid="20" name="complete" tags="" position="583,1424" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[JAKE
 Well thank you kindly. I’ll be sure to give em your regards.
 
-(colour: green)[**Liquor Acquired**]]</tw-passagedata><tw-passagedata pid="21" name="Come now give me something here, at least as a farewell gift." tags="" position="237.5,1334" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
+(colour: green)[**Liquor Acquired**]]
+
+(set: $xavier to true)
+
+[[Jake steps outside. -&gt;lonesomeDove]]</tw-passagedata><tw-passagedata pid="21" name="Come now give me something here, at least as a farewell gift." tags="" position="237,1334" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
 I’m sorry, but I can’t just give away liquor.
 
 JAKE(set: $gift to true)
 [[This ain’t just for me, it’s for Call and Gus too. I’m sure they’d appreciate your kindness.]]
-(if: $fortune)[[We’ll be making a fortune in Montany. I’god, you give us this liquor for free, we’ll be sure to bring you back a dozen times what that cost.]]]</tw-passagedata><tw-passagedata pid="22" name="This ain’t just for me, it’s for Call and Gus too. I’m sure they’d appreciate your kindness." tags="" position="298.5,1484" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
+(if: $fortune)[[We’ll be making a fortune in Montany. I’god, you give us this liquor for free, we’ll be sure to bring you back a dozen times what that cost.]]]</tw-passagedata><tw-passagedata pid="22" name="This ain’t just for me, it’s for Call and Gus too. I’m sure they’d appreciate your kindness." tags="" position="298,1484" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
 Well.. I guess I can.. Just this once, for Call and Gus. &#39;ere take this crate.]
 
 Xavier hands over a crate of liquor.
 
 (align: &quot;=&gt;&lt;=&quot;)[XAVIER
 Please give them my regards.]
-(display: &quot;complete&quot;)</tw-passagedata><tw-passagedata pid="23" name="We’ll be making a fortune in Montany. I’god, you give us this liquor for free, we’ll be sure to bring you back a dozen times what that cost." tags="" position="454.5,1479" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
+(display: &quot;complete&quot;)</tw-passagedata><tw-passagedata pid="23" name="We’ll be making a fortune in Montany. I’god, you give us this liquor for free, we’ll be sure to bring you back a dozen times what that cost." tags="" position="454,1479" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
 As good an offer that might be, I cannot do business on such shaky claims.
 How can I be sure you’ll make a fortune, and even if you do what assurance do I have that you’ll return.
 
 JAKE(set: $fortune to false)
 (if: $gift)[[Come now give me something here, at least as a farewell gift.]]
-[[This ain’t just for me, it’s for Call and Gus too. I’m sure they’d appreciate your kindness.]]]</tw-passagedata><tw-passagedata pid="24" name="How much’ll" tags="" position="580.5,1279" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
+[[This ain’t just for me, it’s for Call and Gus too. I’m sure they’d appreciate your kindness.]]]</tw-passagedata><tw-passagedata pid="24" name="How much’ll" tags="" position="580,1279" size="100,100">(align: &quot;=&gt;&lt;=&quot;)[XAVIER
 (if: $money is 20)[Half a barrel of whiskey.](else: )[&#39;bout a dozen bottles of whisky]
 
 JAKE
@@ -185,7 +241,20 @@ JAKE
 
 (align: &quot;=&gt;&lt;=&quot;)[XAVIER
 Here you go, please give the others my regards.]
-(display: &quot;complete&quot;)]</tw-passagedata></tw-storydata>
+(display: &quot;complete&quot;)]</tw-passagedata><tw-passagedata pid="25" name="Head back to the Ranch." tags="" position="1097,599" size="100,100">EXT. CALL’S RANCH - AFTERNOON
+
+(align: &quot;=&gt;&lt;=&quot;)[JAKE
+Hey Call! I got the goods.
+
+CALL
+Took you long enough. Let me see what you got.]
+
+Jake hands over the supplies.
+
+(if: (cond: $grain,$corn))[Doing what you’re told for once. Good job, feel free to rest up a bit.]
+(else-if: $soap)[What the hell is this? Damn it, I’ll handle this after I deal with Hell Bitch.]
+(else-if: $pie)[Spoon, the hell you buy this for? We ain’t goin to a damn tea party with the Queen.](else-if: $penuts)[Why’d you bring me a sack of penuts? We already got a few.]
+</tw-passagedata><tw-passagedata pid="26" name="That&#39;l be all Jim, much obliged." tags="" position="134,1165" size="100,100">[[Jake kindly accepts the goods and leaves.-&gt;lonesomeDove]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
